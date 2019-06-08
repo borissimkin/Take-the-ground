@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class ControllerMove : MonoBehaviour
 {
+    //TODO: Наверно сюда добавить анимации
 
     Rigidbody2D body;
     float horizontal;
