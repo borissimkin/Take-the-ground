@@ -127,11 +127,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4162333695495104, guid: 98fde3d6759a84848bb578d41c8350ba, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.05
       objectReference: {fileID: 0}
     - target: {fileID: 4162333695495104, guid: 98fde3d6759a84848bb578d41c8350ba, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 4162333695495104, guid: 98fde3d6759a84848bb578d41c8350ba, type: 2}
       propertyPath: m_LocalPosition.z
@@ -404,6 +404,28 @@ Transform:
   m_PrefabParentObject: {fileID: 4957660581086898, guid: 10227d534539f2743883ad4bc5cfcd8e,
     type: 2}
   m_PrefabInternal: {fileID: 1144609088}
+--- !u!114 &1970484580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1970484578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0d4833714866e41a7984980b7e0d9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedBullet: 10
+  spreading: 0
+  ClipCapacity: 15
+  StashCapacity: 30
+  AmmoLeftInClip: 15
+  AmmoLeftInStash: 30
+  damage: 10
+  range: 500
+  timeout: 0.5
+  reloadTime: 1
+  canShoot: 0
 --- !u!114 &1970484581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +439,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1358283913}
   spawnPoint: {fileID: 648450300}
-  speed: 1
 --- !u!1 &2142402049
 GameObject:
   m_ObjectHideFlags: 0

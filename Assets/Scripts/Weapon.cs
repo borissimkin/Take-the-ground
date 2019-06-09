@@ -4,12 +4,15 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour {
     /// <summary>
+    /// скорость полета пули
+    /// </summary>
+    public float speedBullet;
+
+    /// <summary>
     /// Разброс
     /// </summary>
     public float spreading;
-    /// <summary>
-    /// Урон
-    /// </summary>
+ 
     /// <summary>
     /// Вместительность магазина.
     /// </summary>
@@ -52,11 +55,10 @@ public abstract class Weapon : MonoBehaviour {
 
     public bool canShoot; // для отключения стрельбы во время перезаряда(в дальнейшем и когда только достал оружие и идет анимация(наверно))
 
-    public void Shoot()
+    public virtual void Shoot()
     {
         AmmoLeftInClip--;
-        
-
+        GetComponent<Bullet>().GenerateBullet();
         if (AmmoLeftInClip <= 0)
             StartCoroutine(CoroutineReload());
         else
@@ -75,7 +77,6 @@ public abstract class Weapon : MonoBehaviour {
         canShoot = true;
         // выходим с сопрограммы
         yield break;
-
     }
 
     // сопрограмма перезарядки

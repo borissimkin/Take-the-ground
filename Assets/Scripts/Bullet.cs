@@ -14,11 +14,9 @@ public class Bullet : MonoBehaviour {
     /// <summary>
     /// Скорость полета пули
     /// </summary>
-    //TODO: сделать так чтоб переменные настраивалась из класса weapon
     //TODO: дописать функцию столкновения с объектом, нанесения урона.
-    public float speed;
 
-    void GenerateBullet()
+    public void GenerateBullet()
     {
         Vector3 bulletPosition = spawnPoint.transform.position;
         Vector2 bulletForce;
@@ -29,15 +27,8 @@ public class Bullet : MonoBehaviour {
         bulletForce = new Vector2(x, y);
 
         GameObject createdBullet = Instantiate(bullet, bulletPosition, transform.rotation) as GameObject;
+
+        createdBullet.GetComponent<Rigidbody2D>().AddForce(bulletForce * GetComponent<Weapon>().speedBullet, ForceMode2D.Impulse);
     }
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        //НАПИСАНО ВРЕМЕННО ДЛЯ ПРОВЕРКИ
-        if (Input.GetMouseButtonDown(0))
-            GenerateBullet();
-	}
+
 }
