@@ -21,6 +21,7 @@ public class ShootSystem : MonoBehaviour {
         }
         if (Input.GetMouseButtonDown(0) & inventory.activeWeapon.canShoot & inventory.activeWeapon.AmmoLeftInClip > 0)
         {
+            print("НАЖАЛИ НА МЫШКУ");
             inventory.activeWeapon.Shoot();
         }
         if (Input.GetKeyDown(KeyCode.R) & inventory.activeWeapon.canShoot && inventory.activeWeapon.AmmoLeftInClip != inventory.activeWeapon.AmmoLeftInStash

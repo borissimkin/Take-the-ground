@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour {
     public Weapon[] inventory;
     //Dictionary<TypeWeapon, Weapon> inventory;
     public Weapon activeWeapon;
+    public Pistol pistol;
     /// <summary>
     /// Переменая указатель на текущее оружие. Инкрементриуется при нажатии Q
     /// </summary>
@@ -32,6 +33,8 @@ public class Inventory : MonoBehaviour {
             inventory[i] = null;
         }
         //TODO: ЗАСУНУТЬ ПИСТОЛЕТ В 0!!!
+        
+        inventory[0] = pistol;
         activeWeapon = inventory[pointSwitcher];
     }
 	

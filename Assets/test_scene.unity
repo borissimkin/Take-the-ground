@@ -209,7 +209,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4957660581086898, guid: 10227d534539f2743883ad4bc5cfcd8e, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1904782547806166, guid: 10227d534539f2743883ad4bc5cfcd8e, type: 2}
       propertyPath: m_Name
@@ -238,7 +238,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -261,6 +261,8 @@ GameObject:
   - component: {fileID: 1620513976}
   - component: {fileID: 1620513981}
   - component: {fileID: 1620513982}
+  - component: {fileID: 1620513984}
+  - component: {fileID: 1620513983}
   m_Layer: 0
   m_Name: person_blue_jacket
   m_TagString: Untagged
@@ -394,6 +396,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 20
+--- !u!114 &1620513983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1620513975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc21e96a765a0940b701cfd2fa295d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1620513984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1620513975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9914bbba46ff19449b8646dcd67766c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory:
+  - {fileID: 1970484580}
+  - {fileID: 0}
+  - {fileID: 0}
+  activeWeapon: {fileID: 0}
+  pistol: {fileID: 1970484580}
 --- !u!1 &1970484578 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1904782547806166, guid: 10227d534539f2743883ad4bc5cfcd8e,
