@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour {
+
+    /// <summary>
+    /// Сам спрайт оружия
+    /// </summary>
+    public SpriteRenderer spriteWeapon;
+    public SpriteRenderer hands;
+
+    /// <summary>
+    /// Родитель хотя возможно стоит просто добавлять по тэгу и эта переменная не нужна
+    /// </summary>
+    public GameObject player;
+    public Transform placePlayer;
     /// <summary>
     /// скорость полета пули
     /// </summary>
@@ -55,6 +67,15 @@ public abstract class Weapon : MonoBehaviour {
 
     public bool canShoot; // для отключения стрельбы во время перезаряда(в дальнейшем и когда только достал оружие и идет анимация(наверно))
 
+
+    /// <summary>
+    /// Берем положение игрока и привязываем к нему оружие
+    /// </summary>
+    public virtual void SetWeaponOnHand()
+    {
+
+    }
+        
     public virtual void Shoot()
     {
         
