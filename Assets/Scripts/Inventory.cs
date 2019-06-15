@@ -10,7 +10,7 @@ public enum TypeWeapon {
 //TODO: сделать возможность быть безоружным
 
 public class Inventory : MonoBehaviour {
-    private int amountTypeWeapon = 3;
+    private int amountTypeWeapon = 2;
 
     /// <summary>
     /// пока что три оружия: пистолет, автомат, дробовик
@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour {
     //Dictionary<TypeWeapon, Weapon> inventory;
     public Weapon activeWeapon;
     public Pistol pistol;
+    public SMG smg;
     /// <summary>
     /// Переменая указатель на текущее оружие. Инкрементриуется при нажатии Q
     /// </summary>
@@ -28,14 +29,16 @@ public class Inventory : MonoBehaviour {
     {
         pointSwitcher = 0;
         inventory = new Weapon[amountTypeWeapon];
-        for (int i = 0; i < amountTypeWeapon; i++)
-        {
-            inventory[i] = null;
-        }
         //TODO: ЗАСУНУТЬ ПИСТОЛЕТ В 0!!!
         
         inventory[0] = pistol;
+        inventory[1] = smg;
         activeWeapon = inventory[pointSwitcher];
+        for (int i = 0; i < amountTypeWeapon; i++)
+        {
+            HideWeapon(inventory[i]);
+        }
+        UnHideWeapon(activeWeapon);
     }
 	
 
@@ -49,18 +52,31 @@ public class Inventory : MonoBehaviour {
         pointSwitcher++;
         if (pointSwitcher >= amountTypeWeapon)
             pointSwitcher = 0;
-        if (inventory[pointSwitcher] == null)
+        for (int i = 0; i < amountTypeWeapon; i++)
         {
-            pointSwitcher--;
-            return;
+            HideWeapon(inventory[i]);
         }
         activeWeapon = inventory[pointSwitcher];
+        UnHideWeapon(activeWeapon);
     }
     
 
 	void Update () {
-		
 	}
+
+    //функция прячет оружие вместе с руками
+    void HideWeapon(Weapon weapon)
+    {
+        weapon.spriteWeapon.enabled = false;
+        weapon.spriteHands.enabled = false;
+    }
+
+    //функция делает видимым оружие вместе с руками
+    void UnHideWeapon(Weapon weapon)
+    {
+        weapon.spriteWeapon.enabled = true;
+        weapon.spriteHands.enabled = true;
+    }
 
     
 }

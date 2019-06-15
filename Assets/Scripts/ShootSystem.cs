@@ -19,7 +19,7 @@ public class ShootSystem : MonoBehaviour {
         {
             inventory.SwitchWeapon();
         }
-        if (Input.GetMouseButtonDown(0) & inventory.activeWeapon.canShoot & inventory.activeWeapon.AmmoLeftInClip > 0)
+        if (Input.GetMouseButton(0) & inventory.activeWeapon.canShoot & inventory.activeWeapon.AmmoLeftInClip > 0)
         {
             print("НАЖАЛИ НА МЫШКУ");
             inventory.activeWeapon.Shoot();

@@ -8,7 +8,7 @@ public abstract class Weapon : MonoBehaviour {
     /// Сам спрайт оружия
     /// </summary>
     public SpriteRenderer spriteWeapon;
-    public SpriteRenderer hands;
+    public SpriteRenderer spriteHands;
 
     /// <summary>
     /// Родитель хотя возможно стоит просто добавлять по тэгу и эта переменная не нужна
@@ -93,6 +93,7 @@ public abstract class Weapon : MonoBehaviour {
     // сопрограмма стрельбы
     public IEnumerator CoroutineShoot()
     {
+        canShoot = false;
         // небольшая задержка
         yield return new WaitForSeconds(timeout);
         // разрешаем стрелять
@@ -104,6 +105,7 @@ public abstract class Weapon : MonoBehaviour {
     // сопрограмма перезарядки
     public IEnumerator CoroutineReload()
     {
+        canShoot = false;
         yield return new WaitForSeconds(reloadTime);
 
         // она служит для красоты перезарядки)
