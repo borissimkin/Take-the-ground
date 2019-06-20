@@ -3,32 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
-    /// <summary>
-    /// Префаб самого патрона
-    /// </summary>
-    public GameObject bullet;
-    /// <summary>
-    /// точка спауна пули
-    /// </summary>
-    public GameObject spawnPoint;
-    /// <summary>
-    /// Скорость полета пули
-    /// </summary>
-    //TODO: дописать функцию столкновения с объектом, нанесения урона.
 
-    public void GenerateBullet()
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector3 bulletPosition = spawnPoint.transform.position;
-        Vector2 bulletForce;
-
-        float x = spawnPoint.transform.position.x - transform.position.x;
-        float y = spawnPoint.transform.position.y - transform.position.y;
-
-        bulletForce = new Vector2(x, y);
-
-        GameObject createdBullet = Instantiate(bullet, bulletPosition, transform.rotation) as GameObject;
-
-        createdBullet.GetComponent<Rigidbody2D>().AddForce(bulletForce * GetComponent<Weapon>().speedBullet, ForceMode2D.Impulse);
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(this.gameObject);
+        }
     }
-
 }

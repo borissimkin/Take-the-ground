@@ -80,7 +80,7 @@ public abstract class Weapon : MonoBehaviour {
     {
         
         AmmoLeftInClip--;
-        GetComponent<Bullet>().GenerateBullet();
+        GetComponent<CreateBullet>().GenerateBullet();
         if (AmmoLeftInClip <= 0)
             StartCoroutine(CoroutineReload());
         else
