@@ -10,8 +10,8 @@ public class Health : MonoBehaviour {
     /// <summary>
     /// Здоровье
     /// </summary>
-    public int health;
-    //TODO: реализовать бронежилет тута
+    [SerializeField]
+    private int health;
 
     /// <summary>
     /// Анимация смерти
@@ -33,6 +33,7 @@ public class Health : MonoBehaviour {
 
     private void Death()
     {
+        Destroy(this.gameObject);
         //ТУТ АНИМАЦИЯ И ПОСЛЕ АНИМАЦИИ ДЕСТРОЙ ОБЖЕКТ
         //Возможно анимацию засунуть в корутину
     }
@@ -40,5 +41,6 @@ public class Health : MonoBehaviour {
     public void AddDamage(int damage)
     {
         this.health = this.health - damage;
+        print(health);
     }
 }

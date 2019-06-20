@@ -15,7 +15,7 @@ public class CreateBullet : MonoBehaviour {
     /// Скорость полета пули
     /// </summary>
     //TODO: дописать функцию столкновения с объектом, нанесения урона.
-    GameObject createdBullet;
+    
     public void GenerateBullet()
     {
         Vector3 bulletPosition = spawnPoint.transform.position;
@@ -26,9 +26,11 @@ public class CreateBullet : MonoBehaviour {
 
         bulletForce = new Vector2(x, y);
 
-        createdBullet = Instantiate(bullet, bulletPosition, transform.rotation) as GameObject;
+        GameObject createdBullet = Instantiate(bullet, bulletPosition, transform.rotation) as GameObject;
 
         createdBullet.GetComponent<Rigidbody2D>().AddForce(bulletForce * GetComponent<Weapon>().speedBullet, ForceMode2D.Impulse);
-        Destroy(createdBullet, 5);
+        createdBullet.GetComponent<Bullet>().damage = GetComponent<Weapon>().damage;
+        if (createdBullet != null)
+            Destroy(createdBullet, 5);
     }
 }

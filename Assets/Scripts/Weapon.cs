@@ -48,7 +48,7 @@ public abstract class Weapon : MonoBehaviour {
     /// <summary>
     /// Урон от оружия
     /// </summary>
-    public float damage;
+    public int damage;
 
     /// <summary>
     /// дальность выстрела

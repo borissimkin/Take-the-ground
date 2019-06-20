@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
-
+    public int damage;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,7 +18,8 @@ public class Bullet : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(this.gameObject);
+            collision.gameObject.GetComponent<Health>().AddDamage(damage);
         }
+        Destroy(this.gameObject);
     }
 }
