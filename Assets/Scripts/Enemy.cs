@@ -8,11 +8,11 @@ public abstract class Enemy : MonoBehaviour {
     /// </summary>
     public float health;
     public float speed;
-    Rigidbody2D rb;
+    protected Rigidbody2D rb;
     public int damage;
     public int rangeAttack;
 
-    private Transform playerPos;
+    protected Transform playerPos;
 
     private void Start()
     {
@@ -21,7 +21,7 @@ public abstract class Enemy : MonoBehaviour {
 
     }
 
-    public void Move()
+    public virtual void Move()
     {
         transform.position = Vector2.MoveTowards(transform.position, playerPos.position, speed * Time.deltaTime);
     }
