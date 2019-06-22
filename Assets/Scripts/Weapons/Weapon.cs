@@ -65,21 +65,34 @@ public abstract class Weapon : MonoBehaviour {
     /// </summary>
     public float reloadTime;
 
-    public bool canShoot; // для отключения стрельбы во время перезаряда(в дальнейшем и когда только достал оружие и идет анимация(наверно))
-
+    /// <summary>
+    /// Компонент звука
+    /// </summary>
+    protected AudioSource audioSource;
 
     /// <summary>
-    /// Берем положение игрока и привязываем к нему оружие
+    /// Звук выстрела
     /// </summary>
-    public virtual void SetWeaponOnHand()
+    public AudioClip shootSound;
+
+    public bool canShoot; // для отключения стрельбы во время перезаряда(в дальнейшем и когда только достал оружие и идет анимация(наверно))
+
+    protected void Start()
     {
+        canShoot = true;
 
     }
-        
+
+    protected void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public virtual void Shoot()
     {
         
         AmmoLeftInClip--;
+        audioSource.PlayOneShot(shootSound);
         GetComponent<CreateBullet>().GenerateBullet();
         if (AmmoLeftInClip <= 0)
             StartCoroutine(CoroutineReload());
