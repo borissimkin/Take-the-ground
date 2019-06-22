@@ -41,6 +41,7 @@ public class Health : MonoBehaviour {
     public void AddDamage(int damage)
     {
         this.health = this.health - damage;
-        print(health);
+        if (this.tag == "Player")
+            print(health);
     }
 }
