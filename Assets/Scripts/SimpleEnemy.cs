@@ -13,5 +13,6 @@ public class SimpleEnemy : Enemy {
 	// Update is called once per frame
 	void Update () {
         Move();
+        RotateToPlayer();
 	}
 }

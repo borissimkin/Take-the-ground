@@ -20,96 +20,26 @@ GameObject:
   m_Component:
   - component: {fileID: 4973102844770594}
   - component: {fileID: 212756553771000608}
-  - component: {fileID: 114790190377078702}
-  - component: {fileID: 114217147064470164}
   m_Layer: 0
   m_Name: Pistol_Sprites
-  m_TagString: Weapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1785798156407230
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4039099475061008}
-  m_Layer: 0
-  m_Name: SpawnBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4039099475061008
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1785798156407230}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.015, y: 0.032, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4973102844770594}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4973102844770594
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1490366301156440}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.013, y: 0.106, z: 0}
-  m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1}
-  m_Children:
-  - {fileID: 4039099475061008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.49, y: 2.37, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114217147064470164
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1490366301156440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a0d4833714866e41a7984980b7e0d9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteWeapon: {fileID: 212756553771000608}
-  spriteHands: {fileID: 0}
-  player: {fileID: 0}
-  placePlayer: {fileID: 0}
-  speedBullet: 2
-  spreading: 0
-  ClipCapacity: 12
-  StashCapacity: 34
-  AmmoLeftInClip: 12
-  AmmoLeftInStash: 34
-  damage: 10
-  range: 500
-  timeout: 1
-  reloadTime: 2
-  canShoot: 1
---- !u!114 &114790190377078702
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1490366301156440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac96bca0bdf52c24ead9961f7dec3f5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 1463655501843112, guid: 98fde3d6759a84848bb578d41c8350ba, type: 2}
-  spawnPoint: {fileID: 1785798156407230}
 --- !u!212 &212756553771000608
 SpriteRenderer:
   m_ObjectHideFlags: 1
