@@ -21,7 +21,7 @@ public abstract class Weapon : MonoBehaviour {
     public float speedBullet;
 
     /// <summary>
-    /// Разброс
+    /// Разброс, чем больше тем сильнее разброс
     /// </summary>
     public float spreading;
  
@@ -56,7 +56,7 @@ public abstract class Weapon : MonoBehaviour {
     public float range;
 
     /// <summary>
-    /// Темп стрельбы
+    /// Темп стрельбы, чем больше, тем больше задержка между выстрелами
     /// </summary>
     public float timeout;
 

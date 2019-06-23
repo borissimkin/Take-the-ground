@@ -20,10 +20,16 @@ public class CreateBullet : MonoBehaviour {
         Vector3 bulletPosition = spawnPoint.transform.position;
         Vector2 bulletForce;
 
+        float spreading = GetComponent<Weapon>().spreading;
+
         float x = spawnPoint.transform.position.x - transform.position.x;
         float y = spawnPoint.transform.position.y - transform.position.y;
 
-        bulletForce = new Vector2(x, y);
+        float spreadingX = Random.Range((spreading * -1), spreading);
+        //float spreadingX = Random.Range(0, spreading);
+        float spreadingY = Random.Range((spreading * -1), spreading);
+
+        bulletForce = new Vector2(x + spreadingX, y);
 
         GameObject createdBullet = Instantiate(bullet, bulletPosition, transform.rotation) as GameObject;
 
@@ -32,4 +38,6 @@ public class CreateBullet : MonoBehaviour {
         if (createdBullet != null)
             Destroy(createdBullet, 5);
     }
+
+    
 }

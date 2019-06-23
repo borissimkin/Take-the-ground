@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     /// Ограничение на диагональное движение
     /// </summary>
     float moveLimiter = 0.7f;
-    [SerializeField] private float runSpeed = 20f;
+    [SerializeField] private float runSpeed;
     // Use this for initialization
     void Start()
     {
