@@ -14,7 +14,6 @@ public class CreateBullet : MonoBehaviour {
     /// <summary>
     /// Скорость полета пули
     /// </summary>
-    //TODO: дописать функцию столкновения с объектом, нанесения урона.
     
     public void GenerateBullet()
     {

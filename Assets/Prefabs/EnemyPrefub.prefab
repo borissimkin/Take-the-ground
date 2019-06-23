@@ -113,12 +113,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  speed: 1
+  speed: 3
   speedRotation: 10
   damage: 10
   rangeAttack: 3
   speedAttack: 2
-  canAttack: 1
+  canAttack: 0
+  canMove: 0
 --- !u!212 &212258897453270934
 SpriteRenderer:
   m_ObjectHideFlags: 1
