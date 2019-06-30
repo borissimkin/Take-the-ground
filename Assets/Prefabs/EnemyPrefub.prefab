@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50275387349477194}
   - component: {fileID: 61317623136723906}
   - component: {fileID: 114659991735647922}
+  - component: {fileID: 114550299206569760}
   m_Layer: 0
   m_Name: EnemyPrefub
   m_TagString: Enemy
@@ -89,6 +90,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.17, y: 0.12}
   m_EdgeRadius: 0
+--- !u!114 &114550299206569760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053727616781312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a249bdae1d16141b2db3899288d533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootTable:
+  - name: Pistol
+    item: {fileID: 1490366301156440, guid: 5a30e954ecd01764b8e0c11032c4476e, type: 2}
+    dropRarity: 0
+  - name: m16
+    item: {fileID: 1888015518405324, guid: ab18872c14c7622479b10dcdec8dbd38, type: 2}
+    dropRarity: 100
+  dropChance: 100
 --- !u!114 &114659991735647922
 MonoBehaviour:
   m_ObjectHideFlags: 1

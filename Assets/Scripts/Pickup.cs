@@ -16,21 +16,43 @@ public class Pickup : MonoBehaviour {
 		
 	}
 
+    TypeWeapon TranslateTag(string tag)
+    {
+        TypeWeapon type = new TypeWeapon();
+        switch (tag)
+        {
+            case "Pistol":
+                type = TypeWeapon.pistol;
+                break;
+            case "M16":
+                type = TypeWeapon.automat;
+                break;
+        }
+        return type;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         print("pickup");
         string tag = collision.gameObject.tag;
-        switch(tag)
-        {
-            //ToDo: проиграть звук пикапа
-            case "Pistol":
-                inventory.Pickaped(TypeWeapon.pistol);
-                break;
-            case "M16":
-                inventory.Pickaped(TypeWeapon.automat);
-                Destroy(collision.gameObject);
-                break;
-        }
+        TypeWeapon type = TranslateTag(tag);
+
+        if (inventory.IsTaken(type))
+            return;
+        //ToDo: прогирать звук пикапа
+        inventory.Pickaped(type);
+        Destroy(collision.gameObject);
+        //switch(tag)
+        //{
+        //    //ToDo: проиграть звук пикапа
+        //    case "Pistol":
+        //        inventory.Pickaped(TypeWeapon.pistol);
+        //        break;
+        //    case "M16":
+        //        inventory.Pickaped(TypeWeapon.automat);
+        //        Destroy(collision.gameObject);
+        //        break;
+        //}
         
     }
 }

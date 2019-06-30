@@ -79,6 +79,20 @@ public class Inventory : MonoBehaviour {
         }
     }
 
+    public bool IsTaken(TypeWeapon type)
+    {
+        bool flag = false;
+        if (type == TypeWeapon.pistol)
+        {
+            return isPickaped[0];
+        }
+        else if (type == TypeWeapon.automat)
+        {
+            return isPickaped[1];
+        }
+        return flag;
+    }
+
 	void Update () {
 	}
 

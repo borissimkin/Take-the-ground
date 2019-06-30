@@ -184,11 +184,6 @@ Prefab:
       propertyPath: m_Name
       value: Person
       objectReference: {fileID: 0}
-    - target: {fileID: 114549504863064492, guid: 2dc478b96f0ef3c4390254b360b97fd1,
-        type: 2}
-      propertyPath: spreading
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2dc478b96f0ef3c4390254b360b97fd1, type: 2}
   m_IsPrefabParent: 0
