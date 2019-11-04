@@ -104,11 +104,11 @@ MonoBehaviour:
   LootTable:
   - name: Pistol
     item: {fileID: 1490366301156440, guid: 5a30e954ecd01764b8e0c11032c4476e, type: 2}
-    dropRarity: 0
+    dropRarity: 50
   - name: m16
     item: {fileID: 1888015518405324, guid: ab18872c14c7622479b10dcdec8dbd38, type: 2}
-    dropRarity: 100
-  dropChance: 100
+    dropRarity: 20
+  dropChance: 30
 --- !u!114 &114659991735647922
 MonoBehaviour:
   m_ObjectHideFlags: 1

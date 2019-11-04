@@ -105,13 +105,6 @@ public abstract class Enemy : MonoBehaviour {
         yield break;
     }
 
-    public void Die()
-    {
-        print("СМЕРТЬ");
-        GetComponent<DropSystem>().CalculateLoot();
-        //СМЕРТЬ
-    }
-
     protected void StopMoving()
     {
         speed = 0;
