@@ -11,7 +11,7 @@ public class Health : MonoBehaviour {
     /// Здоровье
     /// </summary>
     [SerializeField]
-    private int health;
+    public int health;
 
     /// <summary>
     /// Анимация смерти
