@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : MonoBehaviour
+{
     public int damage;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,5 +24,7 @@ public class Bullet : MonoBehaviour {
             collision.gameObject.GetComponent<Health>().AddDamage(damage);
         }
         Destroy(this.gameObject);
+        print("bullet destroyed");
+        print(collision.gameObject);
     }
 }

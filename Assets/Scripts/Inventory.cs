@@ -4,24 +4,26 @@ using UnityEngine;
 
 
 //TODO: реализовать пикапы
-public enum TypeWeapon {pistol, automat}
+public enum TypeWeapon { pistol, automat, shotgun }
 
-public class Inventory : MonoBehaviour {
-    private int amountTypeWeapon = 2;
+public class Inventory : MonoBehaviour
+{
+    private int amountTypeWeapon = 3;
 
     /// <summary>
     /// пока что три оружия: пистолет, автомат, дробовик
     /// </summary>
-    public Weapon[] inventory;
+    private Weapon[] inventory;
     /// <summary>
     /// так как все оружия изначально есть на персонаже, надо проверять подобрал
     /// ли он их для разблокировки
     /// </summary>
-    public bool[] isPickaped;
+    private bool[] isPickaped;
     //Dictionary<TypeWeapon, Weapon> inventory;
     public Weapon activeWeapon;
     public Pistol pistol;
     public SMG automat;
+    public Shotgun shotgun;
     /// <summary>
     /// Переменая указатель на текущее оружие. Инкрементриуется при нажатии Q
     /// </summary>
@@ -32,19 +34,20 @@ public class Inventory : MonoBehaviour {
         pointSwitcher = 0;
         inventory = new Weapon[amountTypeWeapon];
         isPickaped = new bool[amountTypeWeapon];
-        
+
         inventory[0] = pistol;
         inventory[1] = automat;
+        inventory[2] = shotgun;
         activeWeapon = inventory[pointSwitcher];
         for (int i = 0; i < amountTypeWeapon; i++)
         {
-            isPickaped[i] = false;
+            isPickaped[i] = true;
             HideWeapon(inventory[i]);
         }
         UnHideWeapon(activeWeapon);
         isPickaped[0] = true;
     }
-	
+
 
     //TODO: Сделать функцию, которая при нажатии на кнопку с цифрой вернет оружие под этим номером
 
@@ -66,7 +69,7 @@ public class Inventory : MonoBehaviour {
         activeWeapon = inventory[pointSwitcher];
         UnHideWeapon(activeWeapon);
     }
-    
+
     public void Pickaped(TypeWeapon type)
     {
         if (type == TypeWeapon.pistol)
@@ -93,8 +96,9 @@ public class Inventory : MonoBehaviour {
         return flag;
     }
 
-	void Update () {
-	}
+    void Update()
+    {
+    }
 
     //функция прячет оружие вместе с руками
     void HideWeapon(Weapon weapon)
@@ -110,5 +114,5 @@ public class Inventory : MonoBehaviour {
         weapon.spriteHands.enabled = true;
     }
 
-    
+
 }

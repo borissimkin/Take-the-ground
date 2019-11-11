@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateBullet : MonoBehaviour {
+public class CreateBullet : MonoBehaviour
+{
     /// <summary>
     /// Префаб самого патрона
     /// </summary>
@@ -14,7 +15,7 @@ public class CreateBullet : MonoBehaviour {
     /// <summary>
     /// Скорость полета пули
     /// </summary>
-    
+
     public void GenerateBullet()
     {
         Vector3 bulletPosition = spawnPoint.transform.position;
@@ -39,5 +40,5 @@ public class CreateBullet : MonoBehaviour {
             Destroy(createdBullet, 5);
     }
 
-    
+
 }
