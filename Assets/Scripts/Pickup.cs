@@ -21,7 +21,7 @@ public class Pickup : MonoBehaviour
 
     TypeWeapon TranslateTag(string tag)
     {
-        TypeWeapon type = TypeWeapon.pistol;
+        TypeWeapon type = new TypeWeapon();
         switch (tag)
         {
             case "Pistol":

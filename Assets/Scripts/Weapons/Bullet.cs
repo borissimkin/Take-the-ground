@@ -24,7 +24,5 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<Health>().AddDamage(damage);
         }
         Destroy(this.gameObject);
-        print("bullet destroyed");
-        print(collision.gameObject);
     }
 }
