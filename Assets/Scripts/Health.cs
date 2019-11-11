@@ -34,7 +34,6 @@ public class Health : MonoBehaviour {
     private void Death()
     {
         GetComponent<DropSystem>().CalculateLoot();
-        print("СМЕРТЬ");
         Destroy(this.gameObject);
 
         //ТУТ АНИМАЦИЯ И ПОСЛЕ АНИМАЦИИ ДЕСТРОЙ ОБЖЕКТ
@@ -44,7 +43,5 @@ public class Health : MonoBehaviour {
     public void AddDamage(int damage)
     {
         this.health = this.health - damage;
-        if (this.tag == "Player")
-            print(health);
     }
 }
