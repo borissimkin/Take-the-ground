@@ -6,6 +6,7 @@ using UnityEngine;
 public class Explosion : MonoBehaviour {
     public float radius;
     public int damage;
+    public SpriteRenderer explosionSprite;
 
     public void Boom()
     {
@@ -16,17 +17,10 @@ public class Explosion : MonoBehaviour {
             Health health;
             if (health = hit.GetComponent<Health>())
             {
+                GameObject createdBullet = Instantiate(explosionSprite.gameObject, transform.position, transform.rotation) as GameObject;
                 health.AddDamage(damage);
             }
+
         }
     }
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

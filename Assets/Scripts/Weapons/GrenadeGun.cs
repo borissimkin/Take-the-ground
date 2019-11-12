@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GrenadeGun : Weapon {
-    public int radiusExplosion;
+    public int radiusExplosion = 30;
 
     override public void Shoot()
     {
