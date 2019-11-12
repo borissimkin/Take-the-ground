@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Inventory))]
-public class Pickup : MonoBehaviour {
+public class Pickup : MonoBehaviour
+{
     private Inventory inventory;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         inventory = gameObject.GetComponent<Inventory>();
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     TypeWeapon TranslateTag(string tag)
     {
@@ -26,6 +29,9 @@ public class Pickup : MonoBehaviour {
                 break;
             case "M16":
                 type = TypeWeapon.automat;
+                break;
+            case "Shotgun":
+                type = TypeWeapon.shotgun;
                 break;
         }
         return type;
@@ -53,6 +59,6 @@ public class Pickup : MonoBehaviour {
         //        Destroy(collision.gameObject);
         //        break;
         //}
-        
+
     }
 }
