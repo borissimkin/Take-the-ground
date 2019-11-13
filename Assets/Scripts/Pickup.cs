@@ -33,6 +33,9 @@ public class Pickup : MonoBehaviour
             case "Shotgun":
                 type = TypeWeapon.shotgun;
                 break;
+            case "GrenadeGun":
+                type = TypeWeapon.grenadeGun;
+                break;
         }
         return type;
     }

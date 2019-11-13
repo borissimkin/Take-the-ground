@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Pistol
   - M16
+  - GrenadeGun
   layers:
   - Default
   - TransparentFX

@@ -4,11 +4,11 @@ using UnityEngine;
 
 
 //TODO: реализовать пикапы
-public enum TypeWeapon { pistol, automat, shotgun }
+public enum TypeWeapon { pistol, automat, shotgun, grenadeGun }
 
 public class Inventory : MonoBehaviour
 {
-    private int amountTypeWeapon = 3;
+    private int amountTypeWeapon = 4;
 
     /// <summary>
     /// пока что три оружия: пистолет, автомат, дробовик
@@ -23,7 +23,9 @@ public class Inventory : MonoBehaviour
     public Weapon activeWeapon;
     public Pistol pistol;
     public SMG automat;
+    public GrenadeGun grenadeGun;
     public Shotgun shotgun;
+
     /// <summary>
     /// Переменая указатель на текущее оружие. Инкрементриуется при нажатии Q
     /// </summary>
@@ -38,10 +40,11 @@ public class Inventory : MonoBehaviour
         inventory[0] = pistol;
         inventory[1] = automat;
         inventory[2] = shotgun;
+        inventory[3] = grenadeGun;
         activeWeapon = inventory[pointSwitcher];
         for (int i = 0; i < amountTypeWeapon; i++)
         {
-            isPickaped[i] = true;
+            isPickaped[i] = false;
             HideWeapon(inventory[i]);
         }
         UnHideWeapon(activeWeapon);
@@ -80,6 +83,14 @@ public class Inventory : MonoBehaviour
         {
             isPickaped[1] = true;
         }
+        else if (type == TypeWeapon.shotgun)
+        {
+            isPickaped[2] = true;
+        }
+        else if (type == TypeWeapon.grenadeGun)
+        {
+            isPickaped[3] = true;
+        }
     }
 
     public bool IsTaken(TypeWeapon type)
@@ -92,6 +103,14 @@ public class Inventory : MonoBehaviour
         else if (type == TypeWeapon.automat)
         {
             return isPickaped[1];
+        }
+        else if (type == TypeWeapon.shotgun)
+        {
+            return isPickaped[2];
+        }
+        else if (type == TypeWeapon.grenadeGun)
+        {
+            return isPickaped[3];
         }
         return flag;
     }
