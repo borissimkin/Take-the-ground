@@ -174,7 +174,7 @@ MonoBehaviour:
   StashCapacity: 6
   AmmoLeftInClip: 0
   AmmoLeftInStash: 2
-  damage: 50
+  damage: 100
   range: 100
   timeout: 1
   reloadTime: 2

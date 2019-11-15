@@ -10,19 +10,18 @@ public class Explosion : MonoBehaviour {
 
     public void Boom()
     {
-        print("BOOM");
+        radius = explosionSprite.size.x; //радиус взрыва равен  размеру спрайта
+        GameObject explosion = Instantiate(explosionSprite.gameObject, transform.position, transform.rotation) as GameObject;
         Vector2 explosionPos = transform.position;
-        Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
-        foreach (Collider hit in colliders)
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPos, radius);
+        foreach (Collider2D hit in colliders)
         {
             Health health;
             if (health = hit.GetComponent<Health>())
             {
-                GameObject explosion = Instantiate(explosionSprite.gameObject, transform.position, transform.rotation) as GameObject;
-                
                 health.AddDamage(damage);
             }
-
         }
+        Destroy(explosion, 1);
     }
 }
