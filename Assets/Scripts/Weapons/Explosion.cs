@@ -16,8 +16,8 @@ public class Explosion : MonoBehaviour {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPos, radius);
         foreach (Collider2D hit in colliders)
         {
-            Health health;
-            if (health = hit.GetComponent<Health>())
+            Health health = hit.GetComponent<Health>();
+            if (health)
             {
                 health.AddDamage(damage);
             }
