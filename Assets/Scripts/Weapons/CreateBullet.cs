@@ -27,8 +27,6 @@ public class CreateBullet : MonoBehaviour
         float y = spawnPoint.transform.position.y - transform.position.y;
 
         float spreadingX = Random.Range((spreading * -1), spreading);
-        //float spreadingX = Random.Range(0, spreading);
-        float spreadingY = Random.Range((spreading * -1), spreading);
 
         bulletForce = new Vector2(x + spreadingX, y);
 

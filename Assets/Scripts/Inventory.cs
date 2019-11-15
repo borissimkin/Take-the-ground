@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
     private int amountTypeWeapon = 4;
 
     /// <summary>
-    /// пока что три оружия: пистолет, автомат, дробовик
+    /// пока что четыре оружия: пистолет, автомат, дробовик, гранатомет
     /// </summary>
     private Weapon[] inventory;
     /// <summary>
@@ -19,12 +19,11 @@ public class Inventory : MonoBehaviour
     /// ли он их для разблокировки
     /// </summary>
     private bool[] isPickaped;
-    //Dictionary<TypeWeapon, Weapon> inventory;
     public Weapon activeWeapon;
     public Pistol pistol;
     public SMG automat;
-    public GrenadeGun grenadeGun;
     public Shotgun shotgun;
+    public GrenadeGun grenadeGun;
 
     /// <summary>
     /// Переменая указатель на текущее оружие. Инкрементриуется при нажатии Q

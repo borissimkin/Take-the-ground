@@ -7,9 +7,8 @@ public class GrenadeGun : Weapon {
 
     override public void Shoot()
     {
-        AmmoLeftInClip--;
-        //todo: разобратьяс со звуком
-        // audioSource.PlayOneShot(shootSound);
+        AmmoLeftInClip--;   
+        audioSource.PlayOneShot(shootSound);
         GetComponent<CreateGrenade>().GenerateGrenade();
         if (AmmoLeftInClip <= 0)
             StartCoroutine(CoroutineReload());

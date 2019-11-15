@@ -10,6 +10,7 @@ public class Explosion : MonoBehaviour {
 
     public void Boom()
     {
+        print("BOOM");
         Vector2 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
         foreach (Collider hit in colliders)
@@ -17,7 +18,8 @@ public class Explosion : MonoBehaviour {
             Health health;
             if (health = hit.GetComponent<Health>())
             {
-                GameObject createdBullet = Instantiate(explosionSprite.gameObject, transform.position, transform.rotation) as GameObject;
+                GameObject explosion = Instantiate(explosionSprite.gameObject, transform.position, transform.rotation) as GameObject;
+                
                 health.AddDamage(damage);
             }
 

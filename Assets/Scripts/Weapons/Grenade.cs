@@ -13,10 +13,13 @@ public class Grenade : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //print("ЛЕЧУ");
+        //print(string.Format("trans x{0}, trans y{1}, point x{2}, point y{3}", transform.position.x, transform.position.y, endPoint.x, endPoint.y));
 		if (gameObject.transform.position.x == endPoint.x && gameObject.transform.position.y == endPoint.y)
         {
+            print("Дошел до точки");
             gameObject.GetComponent<Explosion>().Boom();
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 5);
         }
 	}
 }
