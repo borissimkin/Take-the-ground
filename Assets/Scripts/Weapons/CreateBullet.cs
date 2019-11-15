@@ -19,23 +19,11 @@ public class CreateBullet : MonoBehaviour
     public void GenerateBullet()
     {
         Vector3 bulletPosition = spawnPoint.transform.position;
-        Vector2 bulletForce;
-
-        float spreading = GetComponent<Weapon>().spreading;
-
-        float x = spawnPoint.transform.position.x - transform.position.x;
-        float y = spawnPoint.transform.position.y - transform.position.y;
-
-        float spreadingX = Random.Range((spreading * -1), spreading);
-
-        bulletForce = new Vector2(x + spreadingX, y);
-
         GameObject createdBullet = Instantiate(bullet, bulletPosition, transform.rotation) as GameObject;
 
-        createdBullet.GetComponent<Rigidbody2D>().AddForce(bulletForce * GetComponent<Weapon>().speedBullet, ForceMode2D.Impulse);
         createdBullet.GetComponent<Bullet>().damage = GetComponent<Weapon>().damage;
-        if (createdBullet != null)
-            Destroy(createdBullet, 5);
+        createdBullet.GetComponent<Bullet>().speed = GetComponent<Weapon>().speedBullet;
+        Destroy(createdBullet, 5);
     }
 
 
