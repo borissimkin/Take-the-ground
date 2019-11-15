@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour {
+public abstract class Weapon : MonoBehaviour
+{
 
     /// <summary>
     /// Сам спрайт оружия
@@ -20,11 +21,6 @@ public abstract class Weapon : MonoBehaviour {
     /// </summary>
     public float speedBullet;
 
-    /// <summary>
-    /// Разброс, чем больше тем сильнее разброс
-    /// </summary>
-    public float spreading;
- 
     /// <summary>
     /// Вместительность магазина.
     /// </summary>
@@ -90,7 +86,7 @@ public abstract class Weapon : MonoBehaviour {
 
     public virtual void Shoot()
     {
-        
+
         AmmoLeftInClip--;
         audioSource.PlayOneShot(shootSound);
         GetComponent<CreateBullet>().GenerateBullet();
