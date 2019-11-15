@@ -173,7 +173,7 @@ MonoBehaviour:
   ClipCapacity: 1
   StashCapacity: 6
   AmmoLeftInClip: 0
-  AmmoLeftInStash: 4
+  AmmoLeftInStash: 2
   damage: 50
   range: 100
   timeout: 1
