@@ -7,14 +7,19 @@ public class ShootSystem : MonoBehaviour
 {
 
     private Inventory inventory;
+    public bool fire = true;
+    //Weapon currentWeapon;
 
     void Start()
     {
         inventory = GetComponent<Inventory>();
+
     }
 
     void Update()
     {
+        if (!fire) return;
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             inventory.SwitchWeapon();

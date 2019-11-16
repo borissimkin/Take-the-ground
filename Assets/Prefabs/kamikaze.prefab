@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 114183270272083548}
   - component: {fileID: 50193336599986964}
   - component: {fileID: 61723910391344426}
-  - component: {fileID: 114118245862077628}
+  - component: {fileID: 114547205134080726}
+  - component: {fileID: 114772998902974580}
   m_Layer: 0
   m_Name: kamikaze
   m_TagString: Enemy
@@ -89,18 +90,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25494307, y: 0.093349576}
   m_EdgeRadius: 0
---- !u!114 &114118245862077628
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1460917223540910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae926f6eacd2f04597585f68ce072ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 50
 --- !u!114 &114183270272083548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,6 +111,33 @@ MonoBehaviour:
   explosionSprite: {fileID: 212887352288429068, guid: 78d32b7e91c9cbd469c19c95ea30d564,
     type: 2}
   damageExplosion: 100
+--- !u!114 &114547205134080726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1460917223540910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee91c6ea50af154a8493e973795dd14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0
+  damage: 0
+  explosionSprite: {fileID: 212887352288429068, guid: 78d32b7e91c9cbd469c19c95ea30d564,
+    type: 2}
+--- !u!114 &114772998902974580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1460917223540910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3f41b8d2e2e7584c9c4f53427563a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!212 &212128221160594314
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -170,8 +170,8 @@ GameObject:
   - component: {fileID: 114399017320782892}
   - component: {fileID: 114241205626407972}
   - component: {fileID: 114893094974282366}
-  - component: {fileID: 114678422777261162}
   - component: {fileID: 70921344477411120}
+  - component: {fileID: 114893809677148820}
   - component: {fileID: 114924646136915142}
   - component: {fileID: 212181020246624650}
   - component: {fileID: 114326888419493790}
@@ -894,6 +894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   legs: {fileID: 212341649203707290}
+  isdead: 0
   runSpeed: 15
 --- !u!114 &114399017320782892
 MonoBehaviour:
@@ -947,18 +948,6 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: 797c036fa8b17fd40837436436a80d8d, type: 3}
   canShoot: 1
   radiusExplosion: 800
---- !u!114 &114678422777261162
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1572805577811990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae926f6eacd2f04597585f68ce072ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &114893094974282366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -970,6 +959,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc21e96a765a0940b701cfd2fa295d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fire: 1
+--- !u!114 &114893809677148820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1572805577811990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df99be15d7ab0a94cbf1c9cd6a0a600d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!114 &114894066624851086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1295,7 +1297,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212575945531397140
 SpriteRenderer:
