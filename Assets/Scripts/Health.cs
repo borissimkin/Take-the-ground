@@ -33,7 +33,11 @@ public class Health : MonoBehaviour {
 
     private void Death()
     {
-        GetComponent<DropSystem>().CalculateLoot();
+        var dropSystem = GetComponent<DropSystem>();
+        if (dropSystem)
+        {
+            dropSystem.CalculateLoot();
+        }
         Destroy(this.gameObject);
 
         //ТУТ АНИМАЦИЯ И ПОСЛЕ АНИМАЦИИ ДЕСТРОЙ ОБЖЕКТ

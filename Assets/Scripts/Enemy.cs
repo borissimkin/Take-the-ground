@@ -4,10 +4,6 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour {
     /// <summary>
-    /// здоровье
-    /// </summary>
-    public float health;
-    /// <summary>
     /// Скорость движения
     /// </summary>
     public float speed;
