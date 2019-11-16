@@ -830,7 +830,6 @@ MonoBehaviour:
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
   speedBullet: 1
-  spreading: 0.5
   ClipCapacity: 12
   StashCapacity: 34
   AmmoLeftInClip: 12
@@ -912,7 +911,6 @@ MonoBehaviour:
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
   speedBullet: 1
-  spreading: 0.1
   ClipCapacity: 30
   StashCapacity: 90
   AmmoLeftInClip: 30
@@ -939,7 +937,6 @@ MonoBehaviour:
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
   speedBullet: 10
-  spreading: 1
   ClipCapacity: 1
   StashCapacity: 6
   AmmoLeftInClip: 1
@@ -1003,7 +1000,6 @@ MonoBehaviour:
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
   speedBullet: 1
-  spreading: 0
   ClipCapacity: 6
   StashCapacity: 12
   AmmoLeftInClip: 6
@@ -1012,7 +1008,7 @@ MonoBehaviour:
   range: 1
   timeout: 1
   reloadTime: 3
-  shootSound: {fileID: 8300000, guid: 6cb82c024680c19459fb74413e0964a5, type: 3}
+  shootSound: {fileID: 8300000, guid: 0d85896bff1b33a4380374192bab19e0, type: 3}
   canShoot: 0
 --- !u!114 &114924646136915142
 MonoBehaviour:
