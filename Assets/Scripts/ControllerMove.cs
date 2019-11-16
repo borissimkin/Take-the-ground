@@ -10,6 +10,7 @@ public class ControllerMove : MonoBehaviour
     Rigidbody2D body;
     float horizontal;
     float vertical;
+    public bool isdead = false;
     /// <summary>
     /// Ограничение на диагональное движение
     /// </summary>
@@ -28,9 +29,14 @@ public class ControllerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal"); // -1 лево
-        vertical = Input.GetAxisRaw("Vertical"); // -1 вниз
+        if (!isdead)
+        {
+            horizontal = Input.GetAxisRaw("Horizontal"); // -1 лево
+            vertical = Input.GetAxisRaw("Vertical"); // -1 вниз
+        }
+        
     }
+
     private void FixedUpdate()
     {
         if (horizontal != 0 && vertical != 0) //диагональное движение

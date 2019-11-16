@@ -6,32 +6,33 @@ using UnityEngine;
 /// Класс здоровья. В нем реализуются методы потери здоровья, смерти объекта,
 /// короче все что касается здоровья
 /// </summary>
-public class Health : MonoBehaviour {
+public abstract class Health : MonoBehaviour {
     /// <summary>
     /// Здоровье
     /// </summary>
     [SerializeField]
     public int health;
-
+    bool checkDeath = false;
     /// <summary>
     /// Анимация смерти
     /// </summary>
     Animation death;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (health <= 0)
+    // Use this for initialization
+    protected void Start() {
+
+    }
+
+    // Update is called once per frame
+    protected void Update() {
+        if (health <= 0 && !checkDeath)
         {
             Death();
+            checkDeath = true;
         }
-	}
+    }
 
-    private void Death()
+    public virtual void Death()
     {
         GetComponent<DropSystem>().CalculateLoot();
         print("СМЕРТЬ");
@@ -43,8 +44,12 @@ public class Health : MonoBehaviour {
 
     public void AddDamage(int damage)
     {
-        this.health = this.health - damage;
-        if (this.tag == "Player")
-            print(health);
+        if (this.health > 0)
+        {
+            this.health = this.health - damage;
+            if (this.tag == "Player")
+                print(health);
+        }
+        else this.health = 0;
     }
 }
