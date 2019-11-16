@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61684097450726214}
   m_Layer: 0
   m_Name: SMG_Sprites
-  m_TagString: M16
+  m_TagString: AssaultRifle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

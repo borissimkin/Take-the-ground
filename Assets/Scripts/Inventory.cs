@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 //TODO: реализовать пикапы
-public enum TypeWeapon { pistol, automat, shotgun, grenadeGun }
+public enum TypeWeapon { pistol, assaultRifle, shotgun, grenadeGun }
 
 public class Inventory : MonoBehaviour
 {
@@ -21,7 +21,7 @@ public class Inventory : MonoBehaviour
     private bool[] isPickaped;
     public Weapon activeWeapon;
     public Pistol pistol;
-    public SMG automat;
+    public AssaultRifle assaultRifle;
     public Shotgun shotgun;
     public GrenadeGun grenadeGun;
 
@@ -37,7 +37,7 @@ public class Inventory : MonoBehaviour
         isPickaped = new bool[amountTypeWeapon];
 
         inventory[0] = pistol;
-        inventory[1] = automat;
+        inventory[1] = assaultRifle;
         inventory[2] = shotgun;
         inventory[3] = grenadeGun;
         activeWeapon = inventory[pointSwitcher];
@@ -78,7 +78,7 @@ public class Inventory : MonoBehaviour
         {
             isPickaped[0] = true;
         }
-        else if (type == TypeWeapon.automat)
+        else if (type == TypeWeapon.assaultRifle)
         {
             isPickaped[1] = true;
         }
@@ -99,7 +99,7 @@ public class Inventory : MonoBehaviour
         {
             return isPickaped[0];
         }
-        else if (type == TypeWeapon.automat)
+        else if (type == TypeWeapon.assaultRifle)
         {
             return isPickaped[1];
         }

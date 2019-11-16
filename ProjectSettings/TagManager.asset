@@ -7,9 +7,9 @@ TagManager:
   - Weapon
   - Enemy
   - Pistol
-  - M16
   - GrenadeGun
   - Shotgun
+  - AssaultRifle
   layers:
   - Default
   - TransparentFX

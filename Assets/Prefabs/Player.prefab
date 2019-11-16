@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4142862868088140}
   - component: {fileID: 212023583604675936}
   m_Layer: 0
-  m_Name: Hands_SMG
+  m_Name: Hands_assaultRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,9 +119,9 @@ GameObject:
   - component: {fileID: 212188099605300170}
   - component: {fileID: 82340103877859462}
   - component: {fileID: 114172336482647938}
-  - component: {fileID: 114549504863064492}
+  - component: {fileID: 114039729529535850}
   m_Layer: 0
-  m_Name: SMG
+  m_Name: assaultRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -426,7 +426,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022807206969678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.028, y: 0.097, z: 0}
+  m_LocalPosition: {x: -0.0076, y: 0.204, z: 0}
   m_LocalScale: {x: 1.133398, y: 1.133398, z: 0.1983447}
   m_Children: []
   m_Father: {fileID: 4362005758822622}
@@ -628,7 +628,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -652,7 +652,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.547
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -801,6 +801,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114039729529535850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1386069481357560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d85cb92f4cb444d94db12d7bef67d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteWeapon: {fileID: 212188099605300170}
+  spriteHands: {fileID: 212023583604675936}
+  player: {fileID: 1572805577811990}
+  placePlayer: {fileID: 0}
+  speedBullet: 1
+  ClipCapacity: 30
+  StashCapacity: 90
+  AmmoLeftInClip: 30
+  AmmoLeftInStash: 90
+  damage: 10
+  range: 500
+  timeout: 0.1
+  reloadTime: 2
+  shootSound: {fileID: 8300000, guid: 6cb82c024680c19459fb74413e0964a5, type: 3}
+  canShoot: 0
 --- !u!114 &114172336482647938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -851,12 +877,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9914bbba46ff19449b8646dcd67766c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeWeapon: {fileID: 114549504863064492}
+  activeWeapon: {fileID: 0}
   pistol: {fileID: 114188356618806506}
-  automat: {fileID: 114549504863064492}
+  assaultRifle: {fileID: 114039729529535850}
   shotgun: {fileID: 114896007414913962}
-  grenadeGun: {fileID: 114363679379869344, guid: 984b0a2c24222b24eb4dd3adecfec0cf,
-    type: 2}
+  grenadeGun: {fileID: 114581308993272872}
 --- !u!114 &114326888419493790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -895,32 +920,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1463655501843112, guid: 98fde3d6759a84848bb578d41c8350ba, type: 2}
   spawnPoint: {fileID: 1786618667077312}
---- !u!114 &114549504863064492
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1386069481357560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67d85cb92f4cb444d94db12d7bef67d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteWeapon: {fileID: 212188099605300170}
-  spriteHands: {fileID: 212023583604675936}
-  player: {fileID: 1572805577811990}
-  placePlayer: {fileID: 0}
-  speedBullet: 1
-  ClipCapacity: 30
-  StashCapacity: 90
-  AmmoLeftInClip: 30
-  AmmoLeftInStash: 600
-  damage: 10
-  range: 500
-  timeout: 0.125
-  reloadTime: 2
-  shootSound: {fileID: 8300000, guid: 6cb82c024680c19459fb74413e0964a5, type: 3}
-  canShoot: 1
 --- !u!114 &114581308993272872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -936,18 +935,18 @@ MonoBehaviour:
   spriteHands: {fileID: 212575945531397140}
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
-  speedBullet: 10
+  speedBullet: 0.3
   ClipCapacity: 1
   StashCapacity: 6
   AmmoLeftInClip: 1
   AmmoLeftInStash: 6
-  damage: 50
+  damage: 100
   range: 100
   timeout: 1
   reloadTime: 2
   shootSound: {fileID: 8300000, guid: 797c036fa8b17fd40837436436a80d8d, type: 3}
   canShoot: 1
-  radiusExplosion: 30
+  radiusExplosion: 800
 --- !u!114 &114678422777261162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1260,7 +1259,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1797195537182192}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1392,7 +1391,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1432782065648224}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
