@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 114921354229777524}
   - component: {fileID: 50275387349477194}
   - component: {fileID: 61317623136723906}
-  - component: {fileID: 114659991735647922}
   - component: {fileID: 114550299206569760}
+  - component: {fileID: 114912762170559684}
   m_Layer: 0
   m_Name: EnemyPrefub
   m_TagString: Enemy
@@ -109,7 +109,7 @@ MonoBehaviour:
     item: {fileID: 1888015518405324, guid: ab18872c14c7622479b10dcdec8dbd38, type: 2}
     dropRarity: 20
   dropChance: 30
---- !u!114 &114659991735647922
+--- !u!114 &114912762170559684
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053727616781312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae926f6eacd2f04597585f68ce072ef, type: 3}
+  m_Script: {fileID: 11500000, guid: f3f41b8d2e2e7584c9c4f53427563a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
@@ -132,7 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d7e28fdb6cdca4e8057cce7e791677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
   speed: 3
   speedRotation: 10
   damage: 10
