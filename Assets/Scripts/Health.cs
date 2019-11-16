@@ -6,7 +6,8 @@ using UnityEngine;
 /// Класс здоровья. В нем реализуются методы потери здоровья, смерти объекта,
 /// короче все что касается здоровья
 /// </summary>
-public abstract class Health : MonoBehaviour {
+public abstract class Health : MonoBehaviour
+{
     /// <summary>
     /// Здоровье
     /// </summary>
@@ -19,12 +20,14 @@ public abstract class Health : MonoBehaviour {
     Animation death;
 
     // Use this for initialization
-    protected void Start() {
+    protected void Start()
+    {
 
     }
 
     // Update is called once per frame
-    protected void Update() {
+    protected void Update()
+    {
         if (health <= 0 && !checkDeath)
         {
             Death();
@@ -34,8 +37,11 @@ public abstract class Health : MonoBehaviour {
 
     public virtual void Death()
     {
-        GetComponent<DropSystem>().CalculateLoot();
-        print("СМЕРТЬ");
+        var dropSystem = GetComponent<DropSystem>();
+        if (dropSystem)
+        {
+            dropSystem.CalculateLoot();
+        }
         Destroy(this.gameObject);
 
         //ТУТ АНИМАЦИЯ И ПОСЛЕ АНИМАЦИИ ДЕСТРОЙ ОБЖЕКТ

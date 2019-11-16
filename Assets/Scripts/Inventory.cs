@@ -4,14 +4,14 @@ using UnityEngine;
 
 
 //TODO: реализовать пикапы
-public enum TypeWeapon { pistol, automat, shotgun }
+public enum TypeWeapon { pistol, assaultRifle, shotgun, grenadeGun }
 
 public class Inventory : MonoBehaviour
 {
-    private int amountTypeWeapon = 3;
+    private int amountTypeWeapon = 4;
 
     /// <summary>
-    /// пока что три оружия: пистолет, автомат, дробовик
+    /// пока что четыре оружия: пистолет, автомат, дробовик, гранатомет
     /// </summary>
     private Weapon[] inventory;
     /// <summary>
@@ -19,11 +19,12 @@ public class Inventory : MonoBehaviour
     /// ли он их для разблокировки
     /// </summary>
     private bool[] isPickaped;
-    //Dictionary<TypeWeapon, Weapon> inventory;
     public Weapon activeWeapon;
     public Pistol pistol;
-    public SMG automat;
+    public AssaultRifle assaultRifle;
     public Shotgun shotgun;
+    public GrenadeGun grenadeGun;
+
     /// <summary>
     /// Переменая указатель на текущее оружие. Инкрементриуется при нажатии Q
     /// </summary>
@@ -36,12 +37,13 @@ public class Inventory : MonoBehaviour
         isPickaped = new bool[amountTypeWeapon];
 
         inventory[0] = pistol;
-        inventory[1] = automat;
+        inventory[1] = assaultRifle;
         inventory[2] = shotgun;
+        inventory[3] = grenadeGun;
         activeWeapon = inventory[pointSwitcher];
         for (int i = 0; i < amountTypeWeapon; i++)
         {
-            isPickaped[i] = true;
+            isPickaped[i] = false;
             HideWeapon(inventory[i]);
         }
         UnHideWeapon(activeWeapon);
@@ -76,9 +78,17 @@ public class Inventory : MonoBehaviour
         {
             isPickaped[0] = true;
         }
-        else if (type == TypeWeapon.automat)
+        else if (type == TypeWeapon.assaultRifle)
         {
             isPickaped[1] = true;
+        }
+        else if (type == TypeWeapon.shotgun)
+        {
+            isPickaped[2] = true;
+        }
+        else if (type == TypeWeapon.grenadeGun)
+        {
+            isPickaped[3] = true;
         }
     }
 
@@ -89,9 +99,17 @@ public class Inventory : MonoBehaviour
         {
             return isPickaped[0];
         }
-        else if (type == TypeWeapon.automat)
+        else if (type == TypeWeapon.assaultRifle)
         {
             return isPickaped[1];
+        }
+        else if (type == TypeWeapon.shotgun)
+        {
+            return isPickaped[2];
+        }
+        else if (type == TypeWeapon.grenadeGun)
+        {
+            return isPickaped[3];
         }
         return flag;
     }
@@ -103,15 +121,13 @@ public class Inventory : MonoBehaviour
     //функция прячет оружие вместе с руками
     void HideWeapon(Weapon weapon)
     {
-        weapon.spriteWeapon.enabled = false;
-        weapon.spriteHands.enabled = false;
+        weapon.active = false;
     }
 
     //функция делает видимым оружие вместе с руками
     void UnHideWeapon(Weapon weapon)
     {
-        weapon.spriteWeapon.enabled = true;
-        weapon.spriteHands.enabled = true;
+        weapon.active = true;
     }
 
 

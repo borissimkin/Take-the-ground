@@ -23,7 +23,6 @@ public class DropSystem : MonoBehaviour {
         int calcDropChance = Random.Range(0, 101);
         if (calcDropChance > dropChance)
         {
-            print("No Loot For ME");
             return;
         }
 

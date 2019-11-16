@@ -27,11 +27,14 @@ public class Pickup : MonoBehaviour
             case "Pistol":
                 type = TypeWeapon.pistol;
                 break;
-            case "M16":
-                type = TypeWeapon.automat;
+            case "AssaultRifle":
+                type = TypeWeapon.assaultRifle;
                 break;
             case "Shotgun":
                 type = TypeWeapon.shotgun;
+                break;
+            case "GrenadeGun":
+                type = TypeWeapon.grenadeGun;
                 break;
         }
         return type;
@@ -39,7 +42,6 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("pickup");
         string tag = collision.gameObject.tag;
         TypeWeapon type = TranslateTag(tag);
 

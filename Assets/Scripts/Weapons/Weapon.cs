@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour {
+public abstract class Weapon : MonoBehaviour
+{
 
     /// <summary>
     /// Сам спрайт оружия
@@ -20,11 +21,6 @@ public abstract class Weapon : MonoBehaviour {
     /// </summary>
     public float speedBullet;
 
-    /// <summary>
-    /// Разброс, чем больше тем сильнее разброс
-    /// </summary>
-    public float spreading;
- 
     /// <summary>
     /// Вместительность магазина.
     /// </summary>
@@ -75,7 +71,26 @@ public abstract class Weapon : MonoBehaviour {
     /// </summary>
     public AudioClip shootSound;
 
-    public bool canShoot; // для отключения стрельбы во время перезаряда(в дальнейшем и когда только достал оружие и идет анимация(наверно))
+    public bool canShoot;
+
+    public bool active
+    {
+        get { return this.spriteHands.enabled && this.spriteWeapon.enabled; }
+        set
+        {
+            this.spriteWeapon.enabled = value;
+            this.spriteHands.enabled = value;
+            if (value)
+            {
+                if (AmmoLeftInClip == 0 && AmmoLeftInStash != 0)
+                    Reload();
+            }
+            else
+            {
+                StopCoroutine("CoroutineReload");
+            }
+        }
+    }
 
     protected void Start()
     {
@@ -90,32 +105,32 @@ public abstract class Weapon : MonoBehaviour {
 
     public virtual void Shoot()
     {
-        
+
         AmmoLeftInClip--;
         audioSource.PlayOneShot(shootSound);
         GetComponent<CreateBullet>().GenerateBullet();
         if (AmmoLeftInClip <= 0)
-            StartCoroutine(CoroutineReload());
+            Reload();
         else
         {
-            StartCoroutine(CoroutineShoot());
+            StartCoroutine("CoroutineShoot");
         }
 
     }
 
-    // сопрограмма стрельбы
     public IEnumerator CoroutineShoot()
     {
         canShoot = false;
-        // небольшая задержка
         yield return new WaitForSeconds(timeout);
-        // разрешаем стрелять
         canShoot = true;
-        // выходим с сопрограммы
         yield break;
     }
 
-    // сопрограмма перезарядки
+    public void Reload()
+    {
+        StartCoroutine("CoroutineReload");
+    }
+
     public IEnumerator CoroutineReload()
     {
         canShoot = false;

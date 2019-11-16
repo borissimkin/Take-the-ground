@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMG : Weapon {
+public class AssaultRifle : Weapon {
 
 	// Use this for initialization
 
