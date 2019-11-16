@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Inventory))]
-public class ShootSystem : MonoBehaviour {
+public class ShootSystem : MonoBehaviour
+{
 
     private Inventory inventory;
-    //Weapon currentWeapon;
 
-    // Use this for initialization
-    void Start () {
+    void Start()
+    {
         inventory = GetComponent<Inventory>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Q))
         {
             inventory.SwitchWeapon();
@@ -23,11 +23,9 @@ public class ShootSystem : MonoBehaviour {
         {
             inventory.activeWeapon.Shoot();
         }
-        if (Input.GetKeyDown(KeyCode.R) & inventory.activeWeapon.canShoot && inventory.activeWeapon.AmmoLeftInClip != inventory.activeWeapon.AmmoLeftInStash
-            && inventory.activeWeapon.AmmoLeftInClip != inventory.activeWeapon.ClipCapacity)
+        if (Input.GetKeyDown(KeyCode.R) && inventory.activeWeapon.AmmoLeftInClip != inventory.activeWeapon.ClipCapacity)
         {
-            inventory.activeWeapon.canShoot = false;
-            StartCoroutine(inventory.activeWeapon.CoroutineReload());
+            inventory.activeWeapon.Reload();
         }
 
     }

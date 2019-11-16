@@ -121,15 +121,13 @@ public class Inventory : MonoBehaviour
     //функция прячет оружие вместе с руками
     void HideWeapon(Weapon weapon)
     {
-        weapon.spriteWeapon.enabled = false;
-        weapon.spriteHands.enabled = false;
+        weapon.active = false;
     }
 
     //функция делает видимым оружие вместе с руками
     void UnHideWeapon(Weapon weapon)
     {
-        weapon.spriteWeapon.enabled = true;
-        weapon.spriteHands.enabled = true;
+        weapon.active = true;
     }
 
 
