@@ -34,7 +34,6 @@ public class ControllerMove : MonoBehaviour
             horizontal = Input.GetAxisRaw("Horizontal"); // -1 лево
             vertical = Input.GetAxisRaw("Vertical"); // -1 вниз
         }
-        
     }
 
     private void FixedUpdate()

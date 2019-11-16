@@ -10,6 +10,7 @@ public class PlayerHealth : Health {
     public override void Death()
     {
         gameObject.GetComponent<ControllerMove>().isdead = true;
+        gameObject.GetComponent<ShootSystem>().fire = false;
         scrDeath = Resources.FindObjectsOfTypeAll(typeof(GameObject)).FirstOrDefault(go => go.name == "ScreenDeath") as GameObject;
         scrDeath.GetComponent<ScreenDeath>().IsDeath();
     }
