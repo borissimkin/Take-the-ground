@@ -945,7 +945,7 @@ MonoBehaviour:
   range: 100
   timeout: 1
   reloadTime: 2
-  shootSound: {fileID: 8300000, guid: 797c036fa8b17fd40837436436a80d8d, type: 3}
+  shootSound: {fileID: 8300000, guid: 9d223efb4e98e9c489a0eaa794b4a61e, type: 3}
   canShoot: 1
   radiusExplosion: 800
 --- !u!114 &114893094974282366
