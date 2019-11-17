@@ -1118,6 +1118,22 @@ Prefab:
       propertyPath: m_Name
       value: Person
       objectReference: {fileID: 0}
+    - target: {fileID: 212473862552753284, guid: 2dc478b96f0ef3c4390254b360b97fd1,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212473862552753284, guid: 2dc478b96f0ef3c4390254b360b97fd1,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 35d072ec029e3f5409cc2a15d1904a59,
+        type: 3}
+    - target: {fileID: 212473862552753284, guid: 2dc478b96f0ef3c4390254b360b97fd1,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2dc478b96f0ef3c4390254b360b97fd1, type: 2}
   m_IsPrefabParent: 0
