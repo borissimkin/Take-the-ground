@@ -8,10 +8,15 @@ public class Explosion : MonoBehaviour {
     public int damage;
     public SpriteRenderer explosionSprite;
 
+    public AudioSource audioSource;
+
+    public AudioClip explosionSound;
+
     public void Boom()
     {
         radius = explosionSprite.size.x; //радиус взрыва равен  размеру спрайта
-        GameObject explosion = Instantiate(explosionSprite.gameObject, transform.position, transform.rotation) as GameObject;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(explosionSound, 10);
         Vector2 explosionPos = transform.position;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPos, radius);
         foreach (Collider2D hit in colliders)
@@ -22,6 +27,6 @@ public class Explosion : MonoBehaviour {
                 health.AddDamage(damage);
             }
         }
-        Destroy(explosion, 1);
+        Destroy(gameObject, 1);
     }
 }

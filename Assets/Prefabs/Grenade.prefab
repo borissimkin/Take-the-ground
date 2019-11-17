@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4842291004570114}
   - component: {fileID: 212813712110414216}
   - component: {fileID: 114464424998828782}
-  - component: {fileID: 114719846232106386}
   - component: {fileID: 50019837125371462}
   - component: {fileID: 61028515047169172}
   m_Layer: 0
@@ -101,20 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageExplosion: 50
---- !u!114 &114719846232106386
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1360019589036302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee91c6ea50af154a8493e973795dd14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 30
-  damage: 50
-  explosionSprite: {fileID: 212887352288429068, guid: 78d32b7e91c9cbd469c19c95ea30d564,
+  explosionPrefub: {fileID: 1208761222460820, guid: 78d32b7e91c9cbd469c19c95ea30d564,
     type: 2}
 --- !u!212 &212813712110414216
 SpriteRenderer:
