@@ -12,7 +12,9 @@ public abstract class Health : MonoBehaviour
     /// Здоровье
     /// </summary>
     [SerializeField]
-    public int health;
+    public int maxHealth;
+
+     [HideInInspector] public int health;
     bool checkDeath = false;
     /// <summary>
     /// Анимация смерти
@@ -22,7 +24,7 @@ public abstract class Health : MonoBehaviour
     // Use this for initialization
     protected void Start()
     {
-
+        health = maxHealth;
     }
 
     // Update is called once per frame
