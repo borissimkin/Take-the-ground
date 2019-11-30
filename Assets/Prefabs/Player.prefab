@@ -817,10 +817,10 @@ MonoBehaviour:
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
   speedBullet: 1
-  ClipCapacity: 30
-  StashCapacity: 90
-  AmmoLeftInClip: 30
-  AmmoLeftInStash: 90
+  clipCapacity: 30
+  stashCapacity: 90
+  ammoLeftInClip: 30
+  ammoLeftInStash: 90
   damage: 10
   range: 500
   timeout: 0.1
@@ -856,10 +856,10 @@ MonoBehaviour:
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
   speedBullet: 1
-  ClipCapacity: 12
-  StashCapacity: 34
-  AmmoLeftInClip: 12
-  AmmoLeftInStash: 34
+  clipCapacity: 12
+  stashCapacity: 24
+  ammoLeftInClip: 12
+  ammoLeftInStash: 24
   damage: 10
   range: 500
   timeout: 0.6
@@ -937,10 +937,10 @@ MonoBehaviour:
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
   speedBullet: 0.3
-  ClipCapacity: 1
-  StashCapacity: 6
-  AmmoLeftInClip: 1
-  AmmoLeftInStash: 6
+  clipCapacity: 1
+  stashCapacity: 6
+  ammoLeftInClip: 1
+  ammoLeftInStash: 6
   damage: 100
   range: 100
   timeout: 1
@@ -1002,10 +1002,10 @@ MonoBehaviour:
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
   speedBullet: 1
-  ClipCapacity: 6
-  StashCapacity: 12
-  AmmoLeftInClip: 6
-  AmmoLeftInStash: 6
+  clipCapacity: 6
+  stashCapacity: 12
+  ammoLeftInClip: 6
+  ammoLeftInStash: 12
   damage: 60
   range: 1
   timeout: 1

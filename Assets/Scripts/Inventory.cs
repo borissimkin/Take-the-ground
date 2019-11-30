@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//TODO: реализовать пикапы
 public enum TypeWeapon { pistol, assaultRifle, shotgun, grenadeGun }
 
 public class Inventory : MonoBehaviour
@@ -18,7 +17,7 @@ public class Inventory : MonoBehaviour
     /// так как все оружия изначально есть на персонаже, надо проверять подобрал
     /// ли он их для разблокировки
     /// </summary>
-    private bool[] isPickaped;
+    private bool[] isPickup;
     public Weapon activeWeapon;
     public Pistol pistol;
     public AssaultRifle assaultRifle;
@@ -34,7 +33,7 @@ public class Inventory : MonoBehaviour
     {
         pointSwitcher = 0;
         inventory = new Weapon[amountTypeWeapon];
-        isPickaped = new bool[amountTypeWeapon];
+        isPickup = new bool[amountTypeWeapon];
 
         inventory[0] = pistol;
         inventory[1] = assaultRifle;
@@ -43,26 +42,22 @@ public class Inventory : MonoBehaviour
         activeWeapon = inventory[pointSwitcher];
         for (int i = 0; i < amountTypeWeapon; i++)
         {
-            isPickaped[i] = false;
+            isPickup[i] = false;
             HideWeapon(inventory[i]);
         }
         UnHideWeapon(activeWeapon);
-        isPickaped[0] = true;
+        isPickup[0] = true;
     }
-
-
-    //TODO: Сделать функцию, которая при нажатии на кнопку с цифрой вернет оружие под этим номером
 
     /// <summary>
     /// Функция смены оружия, при нажатии на Q
     /// </summary>
     public void SwitchWeapon()
     {
-        //ToDO: реализоват вдальнейшем переключение когда в середине инвентаря есть какое то оружие
         pointSwitcher++;
         if (pointSwitcher >= amountTypeWeapon)
             pointSwitcher = 0;
-        if (isPickaped[pointSwitcher] == false)
+        if (isPickup[pointSwitcher] == false)
             return;
         for (int i = 0; i < amountTypeWeapon; i++)
         {
@@ -72,24 +67,66 @@ public class Inventory : MonoBehaviour
         UnHideWeapon(activeWeapon);
     }
 
-    public void Pickaped(TypeWeapon type)
+    public void Pickup(TypeWeapon type)
     {
         if (type == TypeWeapon.pistol)
         {
-            isPickaped[0] = true;
+            isPickup[0] = true;
         }
         else if (type == TypeWeapon.assaultRifle)
         {
-            isPickaped[1] = true;
+            isPickup[1] = true;
         }
         else if (type == TypeWeapon.shotgun)
         {
-            isPickaped[2] = true;
+            isPickup[2] = true;
         }
         else if (type == TypeWeapon.grenadeGun)
         {
-            isPickaped[3] = true;
+            isPickup[3] = true;
         }
+    }
+
+    public bool PickupAmmunition(Weapon pickupWeapon, TypeWeapon typePickupWeapon)
+    {
+        Weapon weaponInInventory = this.GetWeapon(typePickupWeapon);
+        if (weaponInInventory.IsFullStash())
+        {
+            return false;
+        }
+        this.ExchangeStashWeapons(pickupWeapon, weaponInInventory);
+        return true;
+    }
+
+    private void ExchangeStashWeapons(Weapon pickupWeapon, Weapon inventoryWeapon)
+    {
+        int stashAmmoPickupWeapon = pickupWeapon.ammoLeftInStash;
+        inventoryWeapon.ammoLeftInStash += stashAmmoPickupWeapon;
+        if (inventoryWeapon.ammoLeftInStash > inventoryWeapon.stashCapacity)
+        {
+            inventoryWeapon.ammoLeftInStash = inventoryWeapon.stashCapacity;
+        }
+    }
+
+    public Weapon GetWeapon(TypeWeapon type)
+    {
+        if (type == TypeWeapon.pistol)
+        {
+            return this.inventory[0];
+        }
+        else if (type == TypeWeapon.assaultRifle)
+        {
+            return this.inventory[1];
+        }
+        else if (type == TypeWeapon.shotgun)
+        {
+            return this.inventory[2];
+        }
+        else
+        {
+            return this.inventory[3];
+        }
+
     }
 
     public bool IsTaken(TypeWeapon type)
@@ -97,19 +134,19 @@ public class Inventory : MonoBehaviour
         bool flag = false;
         if (type == TypeWeapon.pistol)
         {
-            return isPickaped[0];
+            return isPickup[0];
         }
         else if (type == TypeWeapon.assaultRifle)
         {
-            return isPickaped[1];
+            return isPickup[1];
         }
         else if (type == TypeWeapon.shotgun)
         {
-            return isPickaped[2];
+            return isPickup[2];
         }
         else if (type == TypeWeapon.grenadeGun)
         {
-            return isPickaped[3];
+            return isPickup[3];
         }
         return flag;
     }
@@ -118,13 +155,11 @@ public class Inventory : MonoBehaviour
     {
     }
 
-    //функция прячет оружие вместе с руками
     void HideWeapon(Weapon weapon)
     {
         weapon.active = false;
     }
 
-    //функция делает видимым оружие вместе с руками
     void UnHideWeapon(Weapon weapon)
     {
         weapon.active = true;

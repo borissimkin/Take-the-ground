@@ -12,7 +12,7 @@ public abstract class Weapon : MonoBehaviour
     public SpriteRenderer spriteHands;
 
     /// <summary>
-    /// Родитель хотя возможно стоит просто добавлять по тэгу и эта переменная не нужна
+    /// Родитель
     /// </summary>
     public GameObject player;
     public Transform placePlayer;
@@ -24,22 +24,22 @@ public abstract class Weapon : MonoBehaviour
     /// <summary>
     /// Вместительность магазина.
     /// </summary>
-    public int ClipCapacity;
+    public int clipCapacity;
 
     /// <summary>
     /// Вместительность запаса патронов.
     /// </summary>
-    public int StashCapacity;
+    public int stashCapacity;
 
     /// <summary>
     /// Количество оставшихся патронов в магазине.
     /// </summary>
-    public int AmmoLeftInClip;
+    public int ammoLeftInClip;
 
     /// <summary>
     /// Количество оставшихся патронов в запасе.
     /// </summary>
-    public int AmmoLeftInStash;
+    public int ammoLeftInStash;
 
     /// <summary>
     /// Урон от оружия
@@ -82,7 +82,7 @@ public abstract class Weapon : MonoBehaviour
             this.spriteHands.enabled = value;
             if (value)
             {
-                if (AmmoLeftInClip == 0 && AmmoLeftInStash != 0)
+                if (ammoLeftInClip == 0 && ammoLeftInStash != 0)
                     Reload();
             }
             else
@@ -106,11 +106,13 @@ public abstract class Weapon : MonoBehaviour
     public virtual void Shoot()
     {
 
-        AmmoLeftInClip--;
+        ammoLeftInClip--;
         audioSource.PlayOneShot(shootSound);
         GetComponent<CreateBullet>().GenerateBullet();
-        if (AmmoLeftInClip <= 0)
+        if (ammoLeftInClip <= 0)
+        {
             Reload();
+        }
         else
         {
             StartCoroutine("CoroutineShoot");
@@ -126,6 +128,18 @@ public abstract class Weapon : MonoBehaviour
         yield break;
     }
 
+    public bool IsFullStash()
+    {
+        if (this.ammoLeftInStash == this.stashCapacity)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void Reload()
     {
         StartCoroutine("CoroutineReload");
@@ -139,37 +153,37 @@ public abstract class Weapon : MonoBehaviour
         // она служит для красоты перезарядки)
         var ammo = 0;
         // если у нас были патроны в магазине то нашей временной переменной присваиваем значение оставшихся патронов
-        if (AmmoLeftInClip > 0)
+        if (ammoLeftInClip > 0)
         {
-            ammo = AmmoLeftInClip;
-            AmmoLeftInClip = 0;
+            ammo = ammoLeftInClip;
+            ammoLeftInClip = 0;
         }
         // (условие №2)если дополнительных патронов меньше чем максимальная емкость магазина...
-        if (AmmoLeftInStash < ClipCapacity)
+        if (ammoLeftInStash < clipCapacity)
         {
             // (условие №3) если количество дополнительных патронов + оставшихся в магазине больше максимальной емкости магазина...
-            if (AmmoLeftInStash + ammo > ClipCapacity)
+            if (ammoLeftInStash + ammo > clipCapacity)
             {
 
                 // то кладем в магазин патроны в количестве максимального его объема
-                AmmoLeftInClip = ClipCapacity;
+                ammoLeftInClip = clipCapacity;
                 // а дополнительные патроны считаем по формуле: дополнительные патроны = дополнительные патроны + оставшиеся патроны - объем магазина
-                AmmoLeftInStash = AmmoLeftInStash + ammo - ClipCapacity;
+                ammoLeftInStash = ammoLeftInStash + ammo - clipCapacity;
             }
             else
             {// если условие №3 не выполняется...
              // то кладем в магазин патроны в количетсве равное дополнительные патроны + те что остались
-                AmmoLeftInClip = AmmoLeftInStash + ammo;
+                ammoLeftInClip = ammoLeftInStash + ammo;
                 // а дополнительные патроны приравниваем нулю
-                AmmoLeftInStash = 0;
+                ammoLeftInStash = 0;
             }
         }
         else
         {// если условие №2 не выполняется...
          // то кладем в магазин патроны в количестве максимального его объема
-            AmmoLeftInClip = ClipCapacity;
+            ammoLeftInClip = clipCapacity;
             // а дополнительные патроны считаем по формуле: дополнительные патроны = дополнительные патроны - объем магазина + оставшиеся
-            AmmoLeftInStash = AmmoLeftInStash - ClipCapacity + ammo;
+            ammoLeftInStash = ammoLeftInStash - clipCapacity + ammo;
         }
         // включаем триггер (стрелять можно)
         canShoot = true;

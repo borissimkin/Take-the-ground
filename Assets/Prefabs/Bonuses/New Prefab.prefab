@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114044947853975358}
   - component: {fileID: 114133297775645356}
   m_Layer: 0
-  m_Name: medicine_chest
+  m_Name: New Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

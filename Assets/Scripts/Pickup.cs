@@ -13,7 +13,6 @@ public class Pickup : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -46,21 +45,19 @@ public class Pickup : MonoBehaviour
         TypeWeapon type = TranslateTag(tag);
 
         if (inventory.IsTaken(type))
-            return;
-        //ToDo: прогирать звук пикапа
-        inventory.Pickaped(type);
-        Destroy(collision.gameObject);
-        //switch(tag)
-        //{
-        //    //ToDo: проиграть звук пикапа
-        //    case "Pistol":
-        //        inventory.Pickaped(TypeWeapon.pistol);
-        //        break;
-        //    case "M16":
-        //        inventory.Pickaped(TypeWeapon.automat);
-        //        Destroy(collision.gameObject);
-        //        break;
-        //}
-
+        {
+            Weapon pickupWeapon = collision.gameObject.GetComponent<Weapon>();
+            bool isPickup = inventory.PickupAmmunition(pickupWeapon, type);
+            if (isPickup)
+            {
+                Destroy(collision.gameObject);
+            }
+        }
+        else
+        {
+            inventory.Pickup(type);
+            Destroy(collision.gameObject);
+        }
+        
     }
 }

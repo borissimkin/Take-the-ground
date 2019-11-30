@@ -165,7 +165,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -194,10 +194,10 @@ MonoBehaviour:
   player: {fileID: 0}
   placePlayer: {fileID: 0}
   speedBullet: 1
-  ClipCapacity: 6
-  StashCapacity: 12
-  AmmoLeftInClip: 6
-  AmmoLeftInStash: 6
+  clipCapacity: 6
+  stashCapacity: 12
+  ammoLeftInClip: 6
+  ammoLeftInStash: 12
   damage: 60
   range: 1
   timeout: 1

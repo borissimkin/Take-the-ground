@@ -33,8 +33,8 @@ public class BulletsHUD : MonoBehaviour {
 
     string GetTextBullets(Weapon activeWeapon)
     {
-        string ammoLeftInClip = activeWeapon.AmmoLeftInClip.ToString();
-        string ammoLeftInStash = activeWeapon.AmmoLeftInStash.ToString();
+        string ammoLeftInClip = activeWeapon.ammoLeftInClip.ToString();
+        string ammoLeftInStash = activeWeapon.ammoLeftInStash.ToString();
         return string.Format("{0} / {1}", ammoLeftInClip, ammoLeftInStash);
     }
 
