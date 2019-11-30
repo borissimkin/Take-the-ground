@@ -71,6 +71,8 @@ public abstract class Weapon : MonoBehaviour
     /// </summary>
     public AudioClip shootSound;
 
+    public AudioClip pickupSound;
+
     public bool canShoot;
 
     public bool active

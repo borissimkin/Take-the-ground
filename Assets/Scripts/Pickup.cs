@@ -6,10 +6,11 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     private Inventory inventory;
-    // Use this for initialization
+    private AudioSource audioSource;
     void Start()
     {
         inventory = gameObject.GetComponent<Inventory>();
+        audioSource = gameObject.GetComponent<AudioSource>();
 
     }
 
@@ -43,18 +44,21 @@ public class Pickup : MonoBehaviour
     {
         string tag = collision.gameObject.tag;
         TypeWeapon type = TranslateTag(tag);
+        Weapon pickupWeapon = collision.gameObject.GetComponent<Weapon>();
 
         if (inventory.IsTaken(type))
         {
-            Weapon pickupWeapon = collision.gameObject.GetComponent<Weapon>();
+            
             bool isPickup = inventory.PickupAmmunition(pickupWeapon, type);
             if (isPickup)
             {
+                audioSource.PlayOneShot(pickupWeapon.pickupSound, 100);
                 Destroy(collision.gameObject);
             }
         }
         else
         {
+            audioSource.PlayOneShot(pickupWeapon.pickupSound, 100);
             inventory.Pickup(type);
             Destroy(collision.gameObject);
         }

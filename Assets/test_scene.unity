@@ -642,6 +642,11 @@ Prefab:
       propertyPath: m_Name
       value: Shotgun (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114260486429533404, guid: 3a29670ccfa586245a2d0eade5b33794,
+        type: 2}
+      propertyPath: pickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bf6553329aa92674d86605e8a17402c3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a29670ccfa586245a2d0eade5b33794, type: 2}
   m_IsPrefabParent: 0
@@ -706,6 +711,7 @@ MonoBehaviour:
   timeout: 1
   reloadTime: 2
   shootSound: {fileID: 8300000, guid: 9d223efb4e98e9c489a0eaa794b4a61e, type: 3}
+  pickupSound: {fileID: 8300000, guid: bf6553329aa92674d86605e8a17402c3, type: 3}
   canShoot: 1
   radiusExplosion: 800
 --- !u!82 &1074308332
@@ -1085,6 +1091,7 @@ MonoBehaviour:
   timeout: 0.1
   reloadTime: 2
   shootSound: {fileID: 8300000, guid: 6cb82c024680c19459fb74413e0964a5, type: 3}
+  pickupSound: {fileID: 8300000, guid: bf6553329aa92674d86605e8a17402c3, type: 3}
   canShoot: 0
 --- !u!114 &1289787436
 MonoBehaviour:
@@ -1503,6 +1510,7 @@ MonoBehaviour:
   timeout: 0.6
   reloadTime: 2
   shootSound: {fileID: 8300000, guid: 797c036fa8b17fd40837436436a80d8d, type: 3}
+  pickupSound: {fileID: 8300000, guid: bf6553329aa92674d86605e8a17402c3, type: 3}
   canShoot: 1
 --- !u!114 &1569396965
 MonoBehaviour:
