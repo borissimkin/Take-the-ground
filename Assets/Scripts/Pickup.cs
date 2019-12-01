@@ -43,23 +43,24 @@ public class Pickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         string tag = collision.gameObject.tag;
-        TypeWeapon type = TranslateTag(tag);
+        TypeWeapon typePickupWeapon = TranslateTag(tag);
         Weapon pickupWeapon = collision.gameObject.GetComponent<Weapon>();
 
-        if (inventory.IsTaken(type))
+        if (inventory.IsTaken(typePickupWeapon))
         {
             
-            bool isPickup = inventory.PickupAmmunition(pickupWeapon, type);
-            if (isPickup)
+            bool canPickup = inventory.CanPickupAmmuntion(typePickupWeapon);
+            if (canPickup)
             {
-                audioSource.PlayOneShot(pickupWeapon.pickupSound, 100);
+                inventory.PickupAmmunition(pickupWeapon, typePickupWeapon);
+                audioSource.PlayOneShot(pickupWeapon.pickupSound, 80);
                 Destroy(collision.gameObject);
             }
         }
         else
         {
-            audioSource.PlayOneShot(pickupWeapon.pickupSound, 100);
-            inventory.Pickup(type);
+            audioSource.PlayOneShot(pickupWeapon.pickupSound, 80);
+            inventory.Pickup(typePickupWeapon);
             Destroy(collision.gameObject);
         }
         

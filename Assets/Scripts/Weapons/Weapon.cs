@@ -130,7 +130,7 @@ public abstract class Weapon : MonoBehaviour
         yield break;
     }
 
-    public bool IsFullStash()
+    public bool IsStashFull()
     {
         if (this.ammoLeftInStash == this.stashCapacity)
         {
