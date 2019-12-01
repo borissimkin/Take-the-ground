@@ -24,11 +24,11 @@ public class ShootSystem : MonoBehaviour
         {
             inventory.SwitchWeapon();
         }
-        if (Input.GetMouseButton(0) & inventory.activeWeapon.canShoot & inventory.activeWeapon.AmmoLeftInClip > 0)
+        if (Input.GetMouseButton(0) & inventory.activeWeapon.canShoot & inventory.activeWeapon.ammoLeftInClip > 0)
         {
             inventory.activeWeapon.Shoot();
         }
-        if (Input.GetKeyDown(KeyCode.R) && inventory.activeWeapon.AmmoLeftInClip != inventory.activeWeapon.ClipCapacity)
+        if (Input.GetKeyDown(KeyCode.R) && inventory.activeWeapon.ammoLeftInClip != inventory.activeWeapon.clipCapacity)
         {
             inventory.activeWeapon.Reload();
         }

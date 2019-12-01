@@ -6,14 +6,14 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     private Inventory inventory;
-    // Use this for initialization
+    private AudioSource audioSource;
     void Start()
     {
         inventory = gameObject.GetComponent<Inventory>();
+        audioSource = gameObject.GetComponent<AudioSource>();
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -43,24 +43,26 @@ public class Pickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         string tag = collision.gameObject.tag;
-        TypeWeapon type = TranslateTag(tag);
+        TypeWeapon typePickupWeapon = TranslateTag(tag);
+        Weapon pickupWeapon = collision.gameObject.GetComponent<Weapon>();
 
-        if (inventory.IsTaken(type))
-            return;
-        //ToDo: прогирать звук пикапа
-        inventory.Pickaped(type);
-        Destroy(collision.gameObject);
-        //switch(tag)
-        //{
-        //    //ToDo: проиграть звук пикапа
-        //    case "Pistol":
-        //        inventory.Pickaped(TypeWeapon.pistol);
-        //        break;
-        //    case "M16":
-        //        inventory.Pickaped(TypeWeapon.automat);
-        //        Destroy(collision.gameObject);
-        //        break;
-        //}
-
+        if (inventory.IsTaken(typePickupWeapon))
+        {
+            
+            bool canPickup = inventory.CanPickupAmmuntion(typePickupWeapon);
+            if (canPickup)
+            {
+                inventory.PickupAmmunition(pickupWeapon, typePickupWeapon);
+                audioSource.PlayOneShot(pickupWeapon.pickupSound, 80);
+                Destroy(collision.gameObject);
+            }
+        }
+        else
+        {
+            audioSource.PlayOneShot(pickupWeapon.pickupSound, 80);
+            inventory.Pickup(typePickupWeapon);
+            Destroy(collision.gameObject);
+        }
+        
     }
 }

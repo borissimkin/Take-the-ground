@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 114924646136915142}
   - component: {fileID: 212181020246624650}
   - component: {fileID: 114326888419493790}
+  - component: {fileID: 82186484168306820}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -561,6 +562,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82186484168306820
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1572805577811990}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &82340103877859462
 AudioSource:
   m_ObjectHideFlags: 1
@@ -817,15 +898,16 @@ MonoBehaviour:
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
   speedBullet: 1
-  ClipCapacity: 30
-  StashCapacity: 90
-  AmmoLeftInClip: 30
-  AmmoLeftInStash: 90
+  clipCapacity: 30
+  stashCapacity: 90
+  ammoLeftInClip: 30
+  ammoLeftInStash: 90
   damage: 10
   range: 500
   timeout: 0.1
   reloadTime: 2
   shootSound: {fileID: 8300000, guid: 6cb82c024680c19459fb74413e0964a5, type: 3}
+  pickupSound: {fileID: 0}
   canShoot: 0
 --- !u!114 &114172336482647938
 MonoBehaviour:
@@ -856,15 +938,16 @@ MonoBehaviour:
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
   speedBullet: 1
-  ClipCapacity: 12
-  StashCapacity: 34
-  AmmoLeftInClip: 12
-  AmmoLeftInStash: 34
+  clipCapacity: 12
+  stashCapacity: 24
+  ammoLeftInClip: 12
+  ammoLeftInStash: 24
   damage: 10
   range: 500
   timeout: 0.6
   reloadTime: 2
   shootSound: {fileID: 8300000, guid: 797c036fa8b17fd40837436436a80d8d, type: 3}
+  pickupSound: {fileID: 0}
   canShoot: 1
 --- !u!114 &114241205626407972
 MonoBehaviour:
@@ -937,15 +1020,16 @@ MonoBehaviour:
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
   speedBullet: 0.3
-  ClipCapacity: 1
-  StashCapacity: 6
-  AmmoLeftInClip: 1
-  AmmoLeftInStash: 6
+  clipCapacity: 1
+  stashCapacity: 6
+  ammoLeftInClip: 1
+  ammoLeftInStash: 6
   damage: 100
   range: 100
   timeout: 1
   reloadTime: 2
   shootSound: {fileID: 8300000, guid: 9d223efb4e98e9c489a0eaa794b4a61e, type: 3}
+  pickupSound: {fileID: 0}
   canShoot: 1
   radiusExplosion: 800
 --- !u!114 &114893094974282366
@@ -1002,15 +1086,16 @@ MonoBehaviour:
   player: {fileID: 1572805577811990}
   placePlayer: {fileID: 0}
   speedBullet: 1
-  ClipCapacity: 6
-  StashCapacity: 12
-  AmmoLeftInClip: 6
-  AmmoLeftInStash: 6
+  clipCapacity: 6
+  stashCapacity: 12
+  ammoLeftInClip: 6
+  ammoLeftInStash: 12
   damage: 60
   range: 1
   timeout: 1
   reloadTime: 3
   shootSound: {fileID: 8300000, guid: 0d85896bff1b33a4380374192bab19e0, type: 3}
+  pickupSound: {fileID: 0}
   canShoot: 0
 --- !u!114 &114924646136915142
 MonoBehaviour:
