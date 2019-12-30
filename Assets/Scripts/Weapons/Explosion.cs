@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// todo: спрайт или анимация
 public class Explosion : MonoBehaviour {
     public float radius;
     public int damage;
+    public float soundVolume = 0.3f;
     public SpriteRenderer explosionSprite;
 
     public AudioSource audioSource;
@@ -16,7 +16,7 @@ public class Explosion : MonoBehaviour {
     {
         radius = explosionSprite.size.x; //радиус взрыва равен  размеру спрайта
         audioSource = GetComponent<AudioSource>();
-        audioSource.PlayOneShot(explosionSound, 10);
+        audioSource.PlayOneShot(explosionSound, soundVolume);
         Vector2 explosionPos = transform.position;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPos, radius);
         foreach (Collider2D hit in colliders)

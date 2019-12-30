@@ -7,6 +7,7 @@ public class Pickup : MonoBehaviour
 {
     private Inventory inventory;
     private AudioSource audioSource;
+    public float soundVolume = 0f;
     void Start()
     {
         inventory = gameObject.GetComponent<Inventory>();
@@ -53,13 +54,13 @@ public class Pickup : MonoBehaviour
             if (canPickup)
             {
                 inventory.PickupAmmunition(pickupWeapon, typePickupWeapon);
-                audioSource.PlayOneShot(pickupWeapon.pickupSound, 80);
+                audioSource.PlayOneShot(pickupWeapon.pickupSound, this.soundVolume);
                 Destroy(collision.gameObject);
             }
         }
         else
         {
-            audioSource.PlayOneShot(pickupWeapon.pickupSound, 80);
+            audioSource.PlayOneShot(pickupWeapon.pickupSound, this.soundVolume);
             inventory.Pickup(typePickupWeapon);
             Destroy(collision.gameObject);
         }

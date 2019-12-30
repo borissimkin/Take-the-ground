@@ -73,6 +73,8 @@ public abstract class Weapon : MonoBehaviour
 
     public AudioClip pickupSound;
 
+    public float soundVolume = 0.3f;
+
     public bool canShoot;
 
     public bool active
@@ -109,7 +111,7 @@ public abstract class Weapon : MonoBehaviour
     {
 
         ammoLeftInClip--;
-        audioSource.PlayOneShot(shootSound);
+        audioSource.PlayOneShot(shootSound, soundVolume);
         GetComponent<CreateBullet>().GenerateBullet();
         if (ammoLeftInClip <= 0)
         {
